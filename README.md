@@ -11,6 +11,7 @@ npm init
 npm init -y
 npm install -g nodemon
 npm install
+npm install dotenv.
 npm install mongodb
 npm install mongoose
 npm install bootstrap@3

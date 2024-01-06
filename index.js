@@ -1,11 +1,13 @@
+require("dotenv").config();
 const express = require("express");
+const app = express();
 
-let http = require("http");
-let server = http.createServer(function (req, res) {
-  res.write('<h1 style="color: green">Hello Campers</h1>');
-  res.end();
+app.get("/", (req, res) => {
+  res.send("<h1 style='color: green'>Hello Campers!</h1>");
 });
 
-server.listen(3000, function () {
-  console.log("Camping at site 3000⛺");
+app.get("*", (req, res) => {
+  res.status(404).send("<h1>404 Page</h1>");
 });
+
+app.listen(process.env.PORT);
