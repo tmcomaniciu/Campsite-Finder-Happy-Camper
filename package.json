@@ -1,0 +1,15 @@
+{
+  "name": "progect2",
+  "version": "1.0.0",
+  "description": "# add branches",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Laney Staggs",
+  "license": "ISC",
+  "keywords": [],
+  "dependencies": {
+    "i": "^0.3.7"
+  }
+}
