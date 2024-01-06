@@ -9,4 +9,12 @@ Laney's-working-branch was added
 npm install i
 npm init
 npm init -y
+npm install -g nodemon
 npm install
+npm install mongodb
+npm install mongoose
+npm install bootstrap@3
+
+# to run this project
+
+node index.js
