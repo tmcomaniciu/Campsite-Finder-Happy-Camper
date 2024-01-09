@@ -7,11 +7,11 @@ function Camps() {
 
     useEffect( () => {
         const fetchData = async () => {
-            console.log('env', process.env.REACT_APP_BACKEND_URL)
-            const url = `http://localhost:8000/camps`
+            const url = `${process.env.REACT_APP_BACKEND_URL}/camps`
             console.log('url', url)
             const response = await fetch(url)
             const data = await response.json()
+            // console.log(data)
             if (data.length) {
                 setData(data)
             }
@@ -20,9 +20,8 @@ function Camps() {
     }, [] )
 
     const displayCamps = data.map(camp => {
-        console.log('name', camp.name);
         return (<li key={camp._id}>
-           { camp.name}
+           { camp.name }
         </li>)
     })
 
