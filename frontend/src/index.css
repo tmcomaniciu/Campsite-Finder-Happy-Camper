@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body{
+    background-image:  url("trees.jpg");;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.homepg {
+    font-size: 25px;
+    color: #fdf6e4;
+}
