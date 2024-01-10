@@ -1,6 +1,7 @@
 import Header from "../components/Header";
 import Hero from "../components/Hero";
 import Footer from "../components/Footer";
+//import Night from "../components/night";
 
 const Layout = ({ children }) => {
   return (
