@@ -29,7 +29,13 @@ const CampSchema = new mongoose.Schema({
     },
     price: {
         type: Number, required: true
-    }
+    },
+    reviewa: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Review'
+        }
+    ]
 })
 
 module.exports = mongoose.model('Camp', CampSchema)
