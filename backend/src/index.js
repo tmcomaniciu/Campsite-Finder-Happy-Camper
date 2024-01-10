@@ -2,6 +2,8 @@ import express from "express";
 const { Request, Response } = express;
 import "dotenv/config";
 import mongoose from "mongoose";
+import userRoutes from "./routes/users.js";
+import authRoutes from "./routes/auth.js";
 
 mongoose
   .connect(process.env.MONGODB_URI)
@@ -12,14 +14,8 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.get("/api/test", async (req, res) => {
-  try {
-    res.json({ message: "express endpoint" });
-  } catch (error) {
-    console.error(error);
-    res.status(500).send("An error occurred");
-  }
-});
+app.use("/api/auth", authRoutes);
+app.use("/api/users", userRoutes);
 
 app.listen(3000, () => {
   console.log("server connected and running on localhost/3000");
