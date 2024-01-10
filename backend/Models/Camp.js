@@ -30,7 +30,7 @@ const CampSchema = new mongoose.Schema({
     price: {
         type: Number, required: true
     },
-    reviewa: [
+    reviews: [
         {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Review'
