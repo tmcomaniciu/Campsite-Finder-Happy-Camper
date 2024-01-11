@@ -2,3 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
+.homepg {
+    font-size: 25px;
+    color: #fdf6e4;
+}
+
+body {
+    background-image: url('tree.jpg');
+    background-size: cover;
+    height: 100vh;
+    animation: changeBackground 20s infinite; /* Change background every 10 seconds, adjust as needed */
+  } 
+  
+  @keyframes changeBackground {
+    0% {
+      background-image: url('trees.jpg');
+    }
+    33% {
+      background-image: url('path.jpg');
+    }
+    66% {
+      background-image: url('forest.jpg');
+    }
+  }
+
+
