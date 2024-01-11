@@ -1,14 +1,15 @@
 import { useState, useEffect } from 'react'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import Card from 'react-bootstrap/Card';
 
 function Camps() {
 
     const [data, setData] = useState([])
 
-    useEffect( () => {
+    useEffect(() => {
         const fetchData = async () => {
-            const url = `${process.env.REACT_APP_BACKEND_URL}/camps`
-            console.log('url', url)
+            const url = `http://localhost:8000/camps`
+            // console.log('url', url)
             const response = await fetch(url)
             const data = await response.json()
             // console.log(data)
@@ -17,16 +18,24 @@ function Camps() {
             }
         }
         fetchData()
-    }, [] )
+    }, [])
 
     const displayCamps = data.map(camp => {
         return (<li key={camp._id}>
-           { camp.name }
+            <Card style={{ width: '18rem' }} className='mb-3'>
+                <Card.Img variant="top" src={`${camp.imageURL}/100px180`} />
+                <Card.Body>
+                    <Card.Title><Link to={`/camp/${camp._id}`}>{camp.name}</Link></Card.Title>
+                    <Card.Body>{camp.city}, {camp.state}</Card.Body>
+                </Card.Body>
+            </Card>
+
+
         </li>)
     })
 
     return (
-        <div>
+        <div className='center'>
             <h2>List of Camp sites</h2>
             <ul>
                 {displayCamps}

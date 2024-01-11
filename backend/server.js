@@ -6,7 +6,8 @@ const mongoose = require('mongoose')
 const campRoutes = require('./Controllers/camp_controllers')
 
 const PORT = process.env.PORT
-const MONGO_URI = process.env.MONGO_URI
+// const MONGO_URI = process.env.MONGO_URI
+const MONGO_URI = 'mongodb://localhost:27017/campsites'
 
 app.use(cors())
 app.use(express.json())
