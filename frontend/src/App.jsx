@@ -11,7 +11,9 @@ const App = () => {
           path="/"
           element={
             <Layout>
-              <p class="homepg">Home Page</p>
+              <div className="decoration-wavy">
+                <p className="homepg">Home Page</p>
+              </div>
             </Layout>
           }
         />
@@ -19,7 +21,7 @@ const App = () => {
           path="/search"
           element={
             <Layout>
-              <p class="homepg">Search Page</p>
+              <p className="homepg">Search Page</p>
             </Layout>
           }
         />
@@ -27,7 +29,7 @@ const App = () => {
           path="*"
           element={
             <Layout>
-              <p class="homepg">Home Page</p>
+              <p className="homepg">Home Page</p>
             </Layout>
           }
         />

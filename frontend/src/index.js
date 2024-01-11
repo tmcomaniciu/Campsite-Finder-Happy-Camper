@@ -1,13 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
+import "./Night.css";
 import App from "./App";
-import Night from "./components/night";
+//import Night from "./components/night";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <App />
-    <Night />
   </React.StrictMode>
 );
