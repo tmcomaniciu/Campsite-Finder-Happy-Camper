@@ -37,7 +37,6 @@ router.get('/', async (req, res) => {
 
 router.get('/price', async (req, res) => {
     try {
-        // console.log('price:', req.query.min, req.query.max );
         const camp = await Camp.find({$and:[{price:{$gte:req.query.min}},{price:{$lt:req.query.max}}]})
         res.json(camp)
     } catch (error) {
