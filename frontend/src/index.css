@@ -2,30 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
+.link {
+  color: white;
+  transition: background-color 1s ease-out 100ms
+}
 
+.link:hover{
+  background-color: #B56727;
+}
 
-.homepg {
+div {
     font-size: 25px;
     color: #fdf6e4;
 }
 
 body {
-    background-image: url('tree.jpg');
-    background-size: cover;
-    height: 100vh;
-    animation: changeBackground 20s infinite; /* Change background every 10 seconds, adjust as needed */
-  } 
-  
-  @keyframes changeBackground {
-    0% {
-      background-image: url('trees.jpg');
-    }
-    33% {
-      background-image: url('path.jpg');
-    }
-    66% {
-      background-image: url('forest.jpg');
-    }
+  background-image: url('./pics/tree.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  animation: changeBackground 20s infinite; /* Change background every 10 seconds, adjust as needed */
+} 
+
+@keyframes changeBackground {
+  from {
+    background-image: url('./pics/trees.jpg');
   }
+  to {
+    background-image: url('./pics/path.jpg');
+  }
+  to {
+    background-image: url('./pics/forest.jpg');}}
 
 
