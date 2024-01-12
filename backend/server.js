@@ -5,7 +5,7 @@ const cors = require('cors')
 const mongoose = require('mongoose')
 const campRoutes = require('./Controllers/camp_controllers')
 
-const PORT = process.env.PORT
+const PORT = process.env.PORT || 8000
 // const MONGO_URI = process.env.MONGO_URI
 const MONGO_URI = 'mongodb://localhost:27017/campsites'
 
