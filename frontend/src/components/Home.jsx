@@ -8,7 +8,7 @@ function Camps() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const url = `http://localhost:8000/camps`;
+      const url = `http://mongodb+srv://admin:password-group-4@mern-campsite-reservati.dg4wdlm.mongodb.net/?retryWrites=true&w=majority/camps`;
       // console.log('url', url)
       const response = await fetch(url);
       const data = await response.json();

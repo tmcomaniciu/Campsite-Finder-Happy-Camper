@@ -21,7 +21,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;
-  animation: changeBackground 20s infinite; /* Change background every 10 seconds, adjust as needed */
+  animation: changeBackground 20s infinite; 
 } 
 
 @keyframes changeBackground {
