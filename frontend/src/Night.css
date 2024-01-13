@@ -1,0 +1,34 @@
+
+.app-container {
+    background-image: url('tree.jpg');
+    background-size: cover;
+    height: 100vh;
+    animation: changeBackground 20s infinite;
+  }
+  
+ .evening {
+    background-image: url('tent.jpg');
+    background-size: cover;
+    height: 100vh;
+    animation: changeBackground 20s infinite;
+  }
+  
+  body {
+    background-image: url('tent.jpg');
+    background-size: cover;
+    height: 100vh;
+    animation: changeBackground 20s infinite;
+  }
+
+  @keyframes changeBackground {
+    0% {
+      background-image: url('north.jpg');
+    }
+    33% {
+      background-image: url('landscape.jpg');
+    }
+    66% {
+      background-image: url('stars.jpg');
+    }
+  }
+  

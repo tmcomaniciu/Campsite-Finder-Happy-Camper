@@ -1,9 +1,8 @@
-
-import './App.css';
-import Camps from './Components/Camps';
+import "./App.css";
+import Camps from "./Components/Camps";
 
 function App() {
-console.log('inside App')
+  console.log("inside App");
   return (
     <div className="App">
       <h1>Welcome to Camping</h1>
