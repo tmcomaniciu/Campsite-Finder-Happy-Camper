@@ -3,8 +3,8 @@ import "../About.css";
 const About = () => {
   return (
     <div className="about">
-      <h2>About Us</h2>
-      <p>
+      <h2 className="h2">About Us</h2>
+      <p className="p">
         Welcome to our campsite reservation site, where the tranquility of the
         great outdoors meets the ease of planning your perfect getaway. Immerse
         yourself in the beauty of nature as you browse through a diverse range

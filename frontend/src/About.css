@@ -1,8 +1,14 @@
 .about{
-    background-color: green;
-    margin-top: 50px;
-    margin-left: 50px;
-    margin-left: 50px;
+    background-color: rgba(0, 100, 0, 0.5);
+    margin: 50px;
     padding: 20px;
     border-radius: 25px;
+}
+
+.h2{
+    color: bisque;
+}
+
+.p{
+    margin-left: 15px;
 }
