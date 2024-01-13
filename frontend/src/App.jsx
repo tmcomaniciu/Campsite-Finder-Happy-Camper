@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Layout from "./layouts/Layout";
 import Home from "./components/Home";
 import Camp from "./components/Camp";
+import Map from "./components/Maps";
 
 const App = () => {
   return (
@@ -24,6 +25,9 @@ const App = () => {
           <Route path="*" element={<Layout>
             <p>Home Page</p>
           </Layout>} />
+          <Route path="/near" element={<Layout>
+          <Map />
+        </Layout>} />
         </Routes>
       </Router>
     </div>

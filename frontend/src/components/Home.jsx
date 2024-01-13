@@ -29,8 +29,6 @@ function Camps() {
                     <Card.Body>{camp.city}, {camp.state}</Card.Body>
                 </Card.Body>
             </Card>
-
-
         </li>)
     })
 
