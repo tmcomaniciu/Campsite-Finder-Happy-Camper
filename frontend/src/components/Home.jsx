@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import '../home.css'
+import '../styles/home.css'
 
 const Home = () => {
     const [isEvening, setIsEvening] = useState(false);
