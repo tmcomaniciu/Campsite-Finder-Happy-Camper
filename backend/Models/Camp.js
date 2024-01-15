@@ -32,10 +32,11 @@ const CampSchema = new mongoose.Schema({
     },
     reviews: [
         {
-            type: mongoose.Schema.Types.ObjectId,
+            type: mongoose.Schema.Types.ObjectID,
             ref: 'Review'
         }
     ]
 })
 
-module.exports = mongoose.model('Camp', CampSchema)
+const Camp = mongoose.model('Camp', CampSchema)
+module.exports = Camp 

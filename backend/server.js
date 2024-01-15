@@ -7,7 +7,8 @@ const campRoutes = require('./Controllers/camp_controllers')
 
 const PORT = process.env.PORT || 8000
 // const MONGO_URI = process.env.MONGO_URI
-const MONGO_URI = 'mongodb://localhost:27017/campsites'
+const MONGO_URI = 'mongodb+srv://admin:password-group-4@mern-campsite-reservati.dg4wdlm.mongodb.net/?retryWrites=true&w=majority'
+// const MONGO_URI = process.env.MONGO_URI
 
 app.use(cors())
 app.use(express.json())
@@ -20,11 +21,19 @@ app.get('/', (req, res) => {
 
 // db connection
 
-mongoose.connect(MONGO_URI)
+// mongoose.connect(MONGO_URI)
 
-    .then(() => console.log('db connected'))
+//     .then(() => console.log('db connected'))
 
-    .catch(err => console.error(err));
+//     .catch(err => console.error(err));
+
+mongoose
+
+  .connect(MONGO_URI)
+
+  .then(() => console.log("MongoDB connected"))
+
+  .catch((err) => console.error("MongoDB connection error:", err));
 
 app.listen(PORT, () => {
     console.log('listening on port', PORT);

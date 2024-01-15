@@ -10,9 +10,6 @@ const Header = () => {
         <span className="text-3xl text-white font-bold tracking-tight">
           <Link to="/showcamps">All Campgrounds</Link>
         </span>
-        {/* <span className="text-3xl text-white font-bold tracking-tight">
-          <Link to="/searchcamp">Search Campgrounds</Link>
-        </span> */}
         <span className="flex">
           <Link
             to="/sign-in"

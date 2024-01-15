@@ -34,7 +34,7 @@ const Home = () => {
                 <br></br>
                 <br></br>
                 <h2 className="text-8xl text-white font-bold tracking-tight">
-                    Making 
+                    Make
                 </h2>
                 <h2 className="text-8xl text-white font-bold tracking-tight">
                     memories

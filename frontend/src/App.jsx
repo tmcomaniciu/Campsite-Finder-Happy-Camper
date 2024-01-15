@@ -6,7 +6,6 @@ import Layout from "./layouts/Layout";
 import Home from "./components/Home";
 import Camp from "./components/Camp";
 import ShowCamp from "./components/ShowCamps";
-import SearchCamp from "./components/SearchCamp";
 
 const App = () => {
   return (
@@ -17,10 +16,6 @@ const App = () => {
           <Route path="/" element={<Layout>
             <Home />
           </Layout>} />
-          {/* <Route path="/searchcamp" element={<Layout>
-            <SearchCamp />
-          </Layout>} /> */}
-        
           <Route path="/showcamps" element={<Layout>
             <ShowCamp />
           </Layout>} />
@@ -28,7 +23,7 @@ const App = () => {
             <Camp />
           </Layout>} />
           <Route path="*" element={<Layout>
-            <p>Home Page</p>
+            <Home />
           </Layout>} />
         </Routes>
       </Router>

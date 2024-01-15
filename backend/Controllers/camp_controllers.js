@@ -37,7 +37,7 @@ router.get('/', async (req, res) => {
 
 router.get('/price', async (req, res) => {
     try {
-        const camp = await Camp.find({$and:[{price:{$gte:req.query.min}},{price:{$lt:req.query.max}}]})
+        const camp = await Camp.find({ $and: [{ price: { $gte: req.query.min } }, { price: { $lt: req.query.max } }] })
         res.json(camp)
     } catch (error) {
         console.log('Error', error);
@@ -48,10 +48,12 @@ router.get('/price', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
     try {
-        const { id } = req.params
-        const camp = await Camp.findById(id)
-        res.json(camp)
-    } catch (error) {
+    const { id } = req.params
+    const camp = await Camp.findById(id).populate('reviews');
+    // console.log(camp)
+    res.json(camp)
+    }
+     catch (error) {
         console.log('Error', error)
         res.status(500).json({ message: 'error getting particular camp site' })
     }
@@ -59,7 +61,7 @@ router.get('/:id', async (req, res) => {
 
 router.post('/:id/reviews', async (req, res) => {
     const camp = await Camp.findById(req.params.id)
-    const review = new Review(req.body.review)
+    const review = new Review(req.body)
     camp.reviews.push(review)
     await review.save()
     await camp.save()
