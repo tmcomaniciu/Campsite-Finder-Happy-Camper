@@ -62,3 +62,23 @@ export const signOut = async () => {
     throw new Error("Error signing out");
   }
 };
+
+export const addMyCampsite = async (campsiteFormData) => {
+  try {
+    const response = await fetch(`${REACT_APP_API_BASE_URL}/api/my-campsites`, {
+      method: "POST",
+      credentials: "include",
+      body: campsiteFormData,
+    });
+
+    if (!response.ok) {
+      const responseBody = await response.json();
+      console.error(responseBody); // Log the detailed error response
+      throw new Error(responseBody.message || "Failed to add campsite");
+    }
+
+    return response.json();
+  } catch (error) {
+    throw error;
+  }
+};

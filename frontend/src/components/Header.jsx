@@ -59,7 +59,7 @@ const Header = () => {
           ) : (
             <Link
               to="/sign-in"
-              className="flex bg-green-900 items-center text-white px-3 font-bold hover:bg-black hover:text-green-900"
+              className="rounded-lg flex bg-green-900 items-center text-white px-3 font-bold hover:bg-black hover:text-green-900"
             >
               Sign In
             </Link>

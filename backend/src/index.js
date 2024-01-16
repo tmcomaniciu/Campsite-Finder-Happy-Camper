@@ -4,6 +4,7 @@ import "dotenv/config";
 import mongoose from "mongoose";
 import userRoutes from "./routes/users.js";
 import authRoutes from "./routes/auth.js";
+import myCampsiteRoutes from "./routes/my-campsites.js";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import { v2 as cloudinary } from "cloudinary";
@@ -30,14 +31,9 @@ app.use(
   })
 );
 
-// const corsOptions = {
-//   origin: "http://localhost:3001",
-//   credentials: true,
-// };
-// app.use(cors({corsOptions}));
-
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
+app.use("/api/my-campsites", myCampsiteRoutes);
 
 app.listen(3000, () => {
   console.log("server connected and running on localhost/3000");
