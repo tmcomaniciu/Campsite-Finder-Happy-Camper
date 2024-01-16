@@ -3,6 +3,7 @@ import Hero from "../components/Hero";
 import Footer from "../components/Footer";
 import About from "../components/About";
 import NavBar from "../components/Navbar";
+import SearchBar from "../components/SearchBar";
 
 const Layout = ({ children }) => {
   return (
@@ -10,6 +11,9 @@ const Layout = ({ children }) => {
       <Header />
       <Hero />
       <NavBar />
+      <div className="container mx-auto">
+      <SearchBar />
+      </div>
       <div className="container mx-auto py-10 flex-1">{children}</div>
       <About />
       <Footer />

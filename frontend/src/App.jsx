@@ -1,12 +1,17 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Layout from "./layouts/Layout";
 import Home from "./components/Home";
 import Camp from "./components/Camp";
+import { useAppContext } from "./contexts/AppContext";
+import AddCampsite from "./pages/AddCampsite";
+import Search from "./pages/Search";
 
 const App = () => {
+  const {isLoggedIn} = useAppContext();
   return (
     <div>
       <Router>
@@ -23,7 +28,7 @@ const App = () => {
             path="/search"
             element={
               <Layout>
-                <p>Search Page</p>
+                <Search />
               </Layout>
             }
           />
@@ -35,6 +40,20 @@ const App = () => {
               </Layout>
             }
           />
+                
+        {/* Add campsite logic */}
+        {isLoggedIn && (
+          <>
+          <Route 
+            path="/add-campsite" 
+            element = {
+              <Layout>
+                <AddCampsite />
+              </Layout>
+            }
+          />
+        </>
+        )} 
           <Route
             path="*"
             element={
