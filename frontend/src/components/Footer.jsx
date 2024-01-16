@@ -1,3 +1,5 @@
+import "../About.css";
+
 const Footer = () => {
   return (
     <div className="bg-green-800 py-10 ">
