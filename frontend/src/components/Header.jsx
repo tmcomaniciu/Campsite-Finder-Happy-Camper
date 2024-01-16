@@ -37,13 +37,11 @@ import logo from '../assets/Happy_Camper.png';
 const Header = () => {
   const { isLoggedIn } = useAppContext();
   return (
-    <div className="bg-green-800 py-6">
+    <div className="bg-green-800 bg-cover bg-center py-10">
+    {/* <div className="bg-green-800 py-6 " > */}
       <div className="container mx-auto flex justify-between">
         <span className="text-5xl text-white font-bold tracking-tight">
-          {/* <Link to="/">Happy Camper</Link> */}
-          <Link to="/">
-          <img src={logo} alt="Happy Camper Logo" className="h-12" /> {/* Image used here */}
-          </Link>       
+          <Link to="/">Happy Camper</Link>      
         </span>
         <span className="flex space-x-2">
           {isLoggedIn ? (

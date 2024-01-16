@@ -1,6 +1,3 @@
-// import { RegisterFormData } from "./pages/Register";
-// import { SignInFormData } from "./pages/SignIn";
-
 const REACT_APP_API_BASE_URL =
   process.env.REACT_APP_API_BASE_URL || "http://localhost:3000";
 
@@ -81,4 +78,27 @@ export const addMyCampsite = async (campsiteFormData) => {
   } catch (error) {
     throw error;
   }
+};
+
+export const searchCampsites = async (searchParams) => {
+  const queryParams = new URLSearchParams();
+
+  queryParams.append("destination", searchParams.destination || "");
+  queryParams.append("checkIn", searchParams.checkIn || "");
+  queryParams.append("checkOut", searchParams.checkOut || "");
+  queryParams.append("adultCount", searchParams.adultCount || "");
+  queryParams.append("childCount", searchParams.childCount || "");
+  queryParams.append("page", searchParams.page || "");
+
+  // Make the API call and process the response
+  console.log(REACT_APP_API_BASE_URL);
+  const response = await fetch(
+    `${REACT_APP_API_BASE_URL}/api/campsites/search?${queryParams}`
+  );
+
+  if (!response.ok) {
+    throw new Error("Error fetching campsites");
+  }
+
+  return response.json();
 };

@@ -6,6 +6,7 @@ import Register from "./pages/Register";
 import SignIn from "./pages/SignIn";
 import { useAppContext } from "./contexts/AppContext";
 import AddCampsite from "./pages/AddCampsite";
+import Search from "./pages/Search";
 
 const App = () => {
   const {isLoggedIn} = useAppContext();
@@ -17,13 +18,13 @@ const App = () => {
         </Layout>} />
 
         <Route path="/search" element={<Layout>
-          <p>Search Page</p>
+          <Search />
         </Layout>} />
 
         <Route path="/register" element={<Layout><Register/></Layout>} />
 
         <Route path="/sign-in/" element={<Layout><SignIn /></Layout>} />
-
+                
         {/* Add campsite logic */}
         {isLoggedIn && (
           <>

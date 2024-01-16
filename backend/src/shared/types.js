@@ -1,50 +1,51 @@
-/**
- * @typedef {Object} UserType
- * @property {string} _id
- * @property {string} email
- * @property {string} password
- * @property {string} firstName
- * @property {string} lastName
- */
+// For UserType
+export const UserType = {
+  _id: undefined,
+  email: undefined,
+  password: undefined,
+  firstName: undefined,
+  lastName: undefined,
+};
 
-/**
- * @typedef {Object} CampsiteType
- * @property {string} _id
- * @property {string} userId
- * @property {string} name
- * @property {string} city
- * @property {string} state
- * @property {string} description
- * @property {string} type
- * @property {number} adultCount
- * @property {number} childCount
- * @property {string[]} facilities
- * @property {number} pricePerNight
- * @property {number} starRating
- * @property {string[]} imageUrls
- * @property {Date} lastUpdated
- * @property {BookingType[]} bookings
- */
+// For HotelType
+export const CampsiteType = {
+  _id: undefined,
+  userId: undefined,
+  name: undefined,
+  city: undefined,
+  state: undefined,
+  description: undefined,
+  type: undefined,
+  adultCount: undefined,
+  childCount: undefined,
+  facilities: undefined,
+  pricePerNight: undefined,
+  starRating: undefined,
+  imageUrls: undefined,
+  lastUpdated: undefined,
+  bookings: undefined, // You'll need to define the structure of BookingType in JavaScript as well
+};
 
-/**
- * @typedef {Object} BookingType
- * @property {string} _id
- * @property {string} userId
- * @property {string} firstName
- * @property {string} lastName
- * @property {string} email
- * @property {number} adultCount
- * @property {number} childCount
- * @property {Date} checkIn
- * @property {Date} checkOut
- * @property {number} totalCost
- */
+// For BookingType
+export const BookingType = {
+  _id: undefined,
+  userId: undefined,
+  firstName: undefined,
+  lastName: undefined,
+  email: undefined,
+  adultCount: undefined,
+  childCount: undefined,
+  checkIn: undefined,
+  checkOut: undefined,
+  totalCost: undefined,
+};
 
-/**
- * @typedef {Object} CampsiteSearchResponse
- * @property {HotelType[]} data
- * @property {Object} pagination
- * @property {number} pagination.total
- * @property {number} pagination.page
- * @property {number} pagination.pages
- */
+// For HotelSearchResponse
+export const CampsiteSearchResponse = {
+  data: undefined, // This should be an array of CampsiteType objects
+  pagination: {
+    total: undefined,
+    page: undefined,
+    pages: undefined,
+  },
+};
