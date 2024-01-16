@@ -22,7 +22,6 @@ mongoose
   .catch((err) => console.error("MongoDB connection error:", err));
 
 const app = express();
-app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(
