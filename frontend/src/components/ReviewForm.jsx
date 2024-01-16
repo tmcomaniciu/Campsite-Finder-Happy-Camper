@@ -37,7 +37,7 @@ function ReviewForm({ id }) {
             <h1 className="text-2xl font-mono"> Write a Review</h1>
             <form onSubmit={handleSubmit}>
                 <input
-                    className='border-solid border-2 border-green-600 mr-1'
+                    className='border-solid border-2 border-green-600 mr-1 rounded-md p-1'
                     type="text"
                     required
                     name='body'
@@ -46,7 +46,7 @@ function ReviewForm({ id }) {
                     onChange={onChangeHandler}
                 />
                 <input
-                    className='border-solid border-2 border-green-600 mr-1'
+                    className='border-solid border-2 border-green-600 mr-1 rounded-md p-1'
                     type="text"
                     required
                     name='rating'
@@ -55,7 +55,7 @@ function ReviewForm({ id }) {
                     onChange={onChangeHandler}
                 />
                 <Button><input
-                    className='bg-green-900 items-center text-white px-3 font-bold hover:bg-slate-200 hover:text-green-900'
+                    className='bg-green-900 items-center text-white px-3 font-bold hover:bg-slate-200 hover:text-green-900 rounded-md p-1'
                     type="submit"
                 /></Button>
             </form>

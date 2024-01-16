@@ -1,6 +1,5 @@
 import { useParams, Link } from "react-router-dom"
 import { useState, useEffect } from "react"
-import Button from 'react-bootstrap/Button';
 import ReviewForm from "./ReviewForm";
 
 function Camp() {
@@ -52,7 +51,7 @@ function Camp() {
             }
 
             rating = (
-                <h3>{stars}</h3>
+                <h3>Overall Camper Rating: {stars}</h3>
             )
 
             displayReviews = data.reviews.map(review => {
@@ -85,12 +84,14 @@ function Camp() {
             <div>
                 <h2>Pricing</h2>
                 <p>${data.price}</p>
-                <Button className="bg-green-900 items-center text-white px-3 font-bold hover:bg-slate-200 hover:text-green-900 mb-1">Reserve Site</Button>
+                <button className="bg-green-900 items-center text-white px-3 font-bold hover:bg-slate-200 hover:text-green-900 mb-1 rounded-md p-1">Reserve Site</button>
             </div>
-            <Button className="bg-green-900 items-center text-white px-3 font-bold hover:bg-slate-200 hover:text-green-900"><Link to={`/showcamps`}>Back</Link></Button>
+            <Link to={`/showcamps`}><button className="bg-green-900 items-center text-white px-3 font-bold hover:bg-slate-200 hover:text-green-800 mr-1 rounded-md p-1">Back</button></Link>
+            <Link to={`/updatecamp`} state={{ data: data }}>
+                <button className="bg-green-900 items-center text-white px-3 font-bold hover:bg-slate-200 hover:text-green-800 rounded-md p-1">Update</button>
+            </Link>
             <div>
                 <h1 className="text-2xl">What others are saying </h1>
-                <h2 className="text-1xl"></h2>
                 <div>
                     {rating}
                     {displayReviews}

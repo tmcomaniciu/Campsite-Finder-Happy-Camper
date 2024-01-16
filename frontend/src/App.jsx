@@ -6,11 +6,12 @@ import Layout from "./layouts/Layout";
 import Home from "./components/Home";
 import Camp from "./components/Camp";
 import ShowCamp from "./components/ShowCamps";
+import New from "./components/New";
+import UpdateCamp from "./components/UpdateCamp";
 
 const App = () => {
   return (
     <div>
-
       <Router>
         <Routes>
           <Route path="/" element={<Layout>
@@ -18,6 +19,12 @@ const App = () => {
           </Layout>} />
           <Route path="/showcamps" element={<Layout>
             <ShowCamp />
+          </Layout>} />
+          <Route path="/newcamp" element={<Layout>
+            <New />
+          </Layout>} />
+          <Route path="/updatecamp" element={<Layout>
+            <UpdateCamp />
           </Layout>} />
           <Route path='/camp/:id' element={<Layout>
             <Camp />

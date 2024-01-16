@@ -10,10 +10,13 @@ const Header = () => {
         <span className="text-3xl text-white font-bold tracking-tight">
           <Link to="/showcamps">All Campgrounds</Link>
         </span>
+        <span className="text-3xl text-white font-bold tracking-tight">
+          <Link to="/newcamp">New </Link>
+        </span>
         <span className="flex">
           <Link
             to="/sign-in"
-            className="flex bg-green-900 items-center text-3xl text-white px-3 font-bold hover:bg-white hover:text-green-900"
+            className="flex bg-green-900 items-center text-2xl text-white px-3 font-bold hover:bg-white hover:text-green-900 rounded-md p-1"
           >
             Sign In
           </Link>

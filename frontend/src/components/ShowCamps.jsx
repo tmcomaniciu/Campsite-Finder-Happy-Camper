@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import '../styles/showCamps.css';
 import { Link } from 'react-router-dom'
-import SearchBox from './SearchCamp';
+import SearchCamp from './SearchCamp';
 
 function Camps() {
 
@@ -64,7 +64,7 @@ function Camps() {
                 <div className='text-2xl font-mono'>List of Camp sites</div>
                 <div className='grow h-14'></div>
                 <div>
-                    <SearchBox onChangeHandler={handleChange} />
+                    <SearchCamp onChangeHandler={handleChange} />
                 </div>
             </div>
             <ul className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
