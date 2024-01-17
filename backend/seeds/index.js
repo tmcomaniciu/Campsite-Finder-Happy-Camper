@@ -87,6 +87,7 @@ const cities = [
 const seedDB = async () => {
   await Camp.deleteMany({});
 
+<<<<<<< HEAD
   for (let i = 0; i < 10; i++) {
     const price = Math.floor(Math.random() * 50) + 10;
     const camp = new Camp({
@@ -105,6 +106,28 @@ const seedDB = async () => {
     await camp.save();
   }
 };
+=======
+    for (let i = 0; i < cities.length; i++) {
+        const price = Math.floor(Math.random() * 50) + 10;
+        const camp = new Camp({
+            name: cities[i].name,
+            city: cities[i].city,
+            state: cities[i].state,
+            description: 'Camping is a fun and exciting outdoor activity that allows you to connect with nature. It is when you leave your home and stay outside for one or more nights, usually in a tent or a camper. The best part about it is that you can do it anywhere from a forest to a mountain top.',
+            imageURL: `https://images.pexels.com/photos/8985295/pexels-photo-8985295.jpeg?auto=compress&cs=tinysrgb&w=600`,
+            price,
+            geolocation: {
+                type: 'Point', 
+                coordinates: [ 
+                    cities[i].longitude,
+                    cities[i].latitude
+                 ] 
+            }
+        })
+        await camp.save()
+    }
+}
+>>>>>>> ef0e421272bbc33aa046bbffef10f5bc3439f711
 seedDB().then(() => {
   mongoose.connection.close();
   console.log("connection closed");

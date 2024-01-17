@@ -1,0 +1,42 @@
+.homepage {
+  background-image: url('../public/images/tree.jpg');
+  background-size: cover;
+  height: 100vh;
+  animation: changeBackground 20s infinite;
+  /* Change background every 10 seconds, adjust as needed */
+}
+
+.evening {
+  background-image: url('../public/images/tent.jpg');
+  background-size: cover;
+  height: 100vh;
+  animation: changeNightBackground 20s infinite;
+}
+
+@keyframes changeBackground {
+  0% {
+    background-image: url('../public/images/trees.jpg');
+  }
+
+  33% {
+    background-image: url('../public/images/path.jpg');
+  }
+
+  66% {
+    background-image: url('../public/images/forest.jpg');
+  }
+}
+
+@keyframes changeNightBackground {
+  0% {
+    background-image: url('../public/images/north.jpg');
+  }
+
+  33% {
+    background-image: url('../public/images/landscape.jpg');
+  }
+
+  66% {
+    background-image: url('../public/images/stars.jpg');
+  }
+}

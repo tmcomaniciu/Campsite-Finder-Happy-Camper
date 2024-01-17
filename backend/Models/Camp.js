@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+import  mongoose from 'mongoose'
 
 const CampSchema = new mongoose.Schema({
     name: {
@@ -14,11 +14,11 @@ const CampSchema = new mongoose.Schema({
         type: {
             type: String,
             enum: ['Point'],
-            required: true
+            required: false
         },
         coordinates: {
             type: [Number],
-            required: true
+            required: false
         }
     },
     description: {
@@ -32,10 +32,11 @@ const CampSchema = new mongoose.Schema({
     },
     reviews: [
         {
-            type: mongoose.Schema.Types.ObjectId,
+            type: mongoose.Schema.Types.ObjectID,
             ref: 'Review'
         }
     ]
 })
 
-module.exports = mongoose.model('Camp', CampSchema)
+const Camp = mongoose.model('Camp', CampSchema)
+export default Camp 

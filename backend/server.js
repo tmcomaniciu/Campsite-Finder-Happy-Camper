@@ -18,7 +18,7 @@ app.get("/", (req, res) => {
   res.send("Welcome to Camping....");
 });
 
-// db connection
+mongoose;
 
 mongoose
   .connect(MONGO_URI)

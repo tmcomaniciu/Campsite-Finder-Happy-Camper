@@ -1,7 +1,8 @@
-const Camp = require('../Models/Camp')
-const Review = require('../Models/Review')
+import express from 'express'
+import Camp from '../Models/Camp.js'
+import Review from '../Models/Review.js'
 
-const router = require('express').Router()
+const router = express.Router()
 
 router.get('/', async (req, res) => {
     const searchBy = Object.keys(req.query)[0]
@@ -37,7 +38,7 @@ router.get('/', async (req, res) => {
 
 router.get('/price', async (req, res) => {
     try {
-        const camp = await Camp.find({$and:[{price:{$gte:req.query.min}},{price:{$lt:req.query.max}}]})
+        const camp = await Camp.find({ $and: [{ price: { $gte: req.query.min } }, { price: { $lt: req.query.max } }] })
         res.json(camp)
     } catch (error) {
         console.log('Error', error);
@@ -48,10 +49,12 @@ router.get('/price', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
     try {
-        const { id } = req.params
-        const camp = await Camp.findById(id)
-        res.json(camp)
-    } catch (error) {
+    const { id } = req.params
+    const camp = await Camp.findById(id).populate('reviews');
+    // console.log(camp)
+    res.json(camp)
+    }
+     catch (error) {
         console.log('Error', error)
         res.status(500).json({ message: 'error getting particular camp site' })
     }
@@ -59,7 +62,7 @@ router.get('/:id', async (req, res) => {
 
 router.post('/:id/reviews', async (req, res) => {
     const camp = await Camp.findById(req.params.id)
-    const review = new Review(req.body.review)
+    const review = new Review(req.body)
     camp.reviews.push(review)
     await review.save()
     await camp.save()
@@ -100,4 +103,4 @@ router.post('/', async (req, res) => {
 
 })
 
-module.exports = router
+export default router
