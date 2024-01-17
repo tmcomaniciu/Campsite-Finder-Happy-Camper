@@ -12,9 +12,8 @@ import campRoutes from '../backend/Controllers/camp_controllers.js';
 
 const app = express()
 const PORT = process.env.PORT || 8000
-const MONGO_URI = 'mongodb+srv://admin:password-group-4@mern-campsite-reservati.dg4wdlm.mongodb.net/?retryWrites=true&w=majority'
+const MONGO_URI = process.env.MONGO_URI
 
-// app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
 app.use('/camps', campRoutes)
