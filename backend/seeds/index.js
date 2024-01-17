@@ -6,8 +6,8 @@ main().catch(error => {
     console.log(error)
 })
 async function main() {
-    console.log(process.env.MONGO_URI);
-    await mongoose.connect('mongodb://localhost:27017/campsites')
+    // console.log(process.env.MONGO_URI);
+    await mongoose.connect(process.env.MONGO_URI)
     console.log('Connected to MongoDB')
 }
 const cities = [
@@ -75,6 +75,20 @@ const cities = [
         state: "Texas",
     },
     {
+        name: 'Dusty Sands',
+        city: "Indianapolis",
+        latitude: 39.768403,
+        longitude: -86.158068,
+        state: "Indiana",
+    },
+    {
+        name: 'Backcountry Village',
+        city: "Columbus",
+        latitude: 39.9611755,
+        longitude: -82.99879419999999,
+        state: "Ohio",
+    },
+    {
         name: 'Spring Camp',
         city: "San Jose",
         latitude: 37.3382082,
@@ -84,13 +98,13 @@ const cities = [
 const seedDB = async () => {
     await Camp.deleteMany({})
 
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < cities.length; i++) {
         const price = Math.floor(Math.random() * 50) + 10;
         const camp = new Camp({
             name: cities[i].name,
             city: cities[i].city,
             state: cities[i].state,
-            description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. A incidunt aliquid in, molestias fugit rem quidem eum eaque illum, harum soluta nisi beatae repellendus amet distinctio praesentium obcaecati eius corrupti.',
+            description: 'Camping is a fun and exciting outdoor activity that allows you to connect with nature. It is when you leave your home and stay outside for one or more nights, usually in a tent or a camper. The best part about it is that you can do it anywhere from a forest to a mountain top.',
             imageURL: `https://images.pexels.com/photos/8985295/pexels-photo-8985295.jpeg?auto=compress&cs=tinysrgb&w=600`,
             price,
             geolocation: {
