@@ -11,7 +11,7 @@ import New from "./components/New";
 import UpdateCamp from "./components/UpdateCamp";
 
 const App = () => {
-  const {isLoggedIn} = useAppContext();
+  // const {isLoggedIn} = useAppContext();
   return (
     <div>
       <Router>

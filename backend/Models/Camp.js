@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+import  mongoose from 'mongoose'
 
 const CampSchema = new mongoose.Schema({
     name: {
@@ -39,4 +39,4 @@ const CampSchema = new mongoose.Schema({
 })
 
 const Camp = mongoose.model('Camp', CampSchema)
-module.exports = Camp 
+export default Camp 
