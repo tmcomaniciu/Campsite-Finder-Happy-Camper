@@ -1,12 +1,5 @@
-// require('dotenv').config()
-// const express = require('express')
-// const app = express()
-// const cors = require('cors')
-// const mongoose = require('mongoose')
-// const campRoutes = require('./Controllers/camp_controllers')
 import "dotenv/config";
 import express from 'express'
-// import cors from 'cors'
 import mongoose from 'mongoose'
 import campRoutes from '../backend/Controllers/camp_controllers.js';
 
