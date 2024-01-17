@@ -19,7 +19,7 @@ function UpdateCamp() {
         e.preventDefault()
         try {
             camp.price = Number(camp.price)
-            const url = `http://localhost:8000/camps/${data._id}`
+            const url = `${REACT_APP_BACKEND_URL}/camps/${data._id}`
             const response = await fetch(url, {
                 method: 'PUT',
                 headers: {

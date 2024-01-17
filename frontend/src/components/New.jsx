@@ -25,7 +25,7 @@ function New() {
         e.preventDefault()
         try {
             data.price = Number(data.price)
-            const url = `http://localhost:8000/camps`
+            const url = `${REACT_APP_BACKEND_URL}/camps`
             const response = await fetch(url, {
                 method: 'POST',
                 headers: {

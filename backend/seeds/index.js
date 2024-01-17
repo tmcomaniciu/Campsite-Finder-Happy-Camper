@@ -6,8 +6,8 @@ main().catch(error => {
     console.log(error)
 })
 async function main() {
-    console.log(process.env.MONGO_URI);
-    await mongoose.connect('mongodb+srv://admin:password-group-4@mern-campsite-reservati.dg4wdlm.mongodb.net/?retryWrites=true&w=majority')
+    // console.log(process.env.MONGO_URI);
+    await mongoose.connect(process.env.MONGO_URI)
     console.log('Connected to MongoDB')
 }
 const cities = [

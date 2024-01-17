@@ -24,7 +24,7 @@ function Camp() {
         const fetchData = async () => {
             try {
                 setIsLoading(true);
-                const url = `http://localhost:8000/camps/${id}`
+                const url = `${REACT_APP_BACKEND_URL}/camps/${id}`
                 // console.log('url', url);
                 const response = await fetch(url)
                 const data = await response.json()

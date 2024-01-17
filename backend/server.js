@@ -6,9 +6,7 @@ const mongoose = require('mongoose')
 const campRoutes = require('./Controllers/camp_controllers')
 
 const PORT = process.env.PORT || 8000
-// const MONGO_URI = process.env.MONGO_URI
-const MONGO_URI = 'mongodb+srv://admin:password-group-4@mern-campsite-reservati.dg4wdlm.mongodb.net/?retryWrites=true&w=majority'
-// const MONGO_URI = process.env.MONGO_URI
+const MONGO_URI = process.env.MONGO_URI
 
 app.use(cors())
 app.use(express.json())
@@ -16,16 +14,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/camps', campRoutes)
 
 app.get('/', (req, res) => {
-    res.send('Welcome to Camping....')
+  res.send('Welcome to Camping....')
 })
-
-// db connection
-
-// mongoose.connect(MONGO_URI)
-
-//     .then(() => console.log('db connected'))
-
-//     .catch(err => console.error(err));
 
 mongoose
 
@@ -36,5 +26,5 @@ mongoose
   .catch((err) => console.error("MongoDB connection error:", err));
 
 app.listen(PORT, () => {
-    console.log('listening on port', PORT);
+  console.log('listening on port', PORT);
 })
