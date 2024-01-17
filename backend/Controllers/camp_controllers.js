@@ -1,7 +1,8 @@
-const Camp = require('../Models/Camp')
-const Review = require('../Models/Review')
+import express from 'express'
+import Camp from '../Models/Camp.js'
+import Review from '../Models/Review.js'
 
-const router = require('express').Router()
+const router = express.Router()
 
 router.get('/', async (req, res) => {
     const searchBy = Object.keys(req.query)[0]
@@ -102,4 +103,4 @@ router.post('/', async (req, res) => {
 
 })
 
-module.exports = router
+export default router
