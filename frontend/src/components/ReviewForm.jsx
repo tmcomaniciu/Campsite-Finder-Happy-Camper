@@ -16,7 +16,7 @@ function ReviewForm({ id }) {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            const url = `${REACT_APP_BACKEND_URL}/camps/${id}/reviews`
+            const url = `${process.env.REACT_APP_BACKEND_URL}/camps/${id}/reviews`
             const response = await fetch(url, {
                 method: 'POST',
                 headers: {
