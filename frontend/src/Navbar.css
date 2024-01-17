@@ -17,12 +17,14 @@
   .topnav a:hover {
     background-color: burlywood;
     color: black;
+    border-radius: 10px;
   }
   
   /* Add a color to the active/current link */
   .topnav a.active {
     background-color: #795c34;
     color: white;
+    border-radius: 10px;
   }
 
   p{
