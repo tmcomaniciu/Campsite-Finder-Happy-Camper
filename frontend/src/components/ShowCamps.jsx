@@ -11,7 +11,7 @@ function Camps() {
     // initial loading of page
     useEffect(() => {
         const fetchData = async () => {
-            const url = `http://localhost:8000/camps`
+            const url = `${process.env.REACT_APP_BACKEND_URL}/camps`
 
             // console.log('url', url)
             const response = await fetch(url)
