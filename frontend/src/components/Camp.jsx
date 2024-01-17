@@ -109,4 +109,4 @@ function Camp() {
     )
 }
 
-export default Camp
+export default Camp;
