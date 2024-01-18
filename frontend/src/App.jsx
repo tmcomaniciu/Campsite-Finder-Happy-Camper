@@ -9,17 +9,22 @@ import Camp from "./components/Camp";
 import ShowCamp from "./components/ShowCamps";
 import New from "./components/New";
 import UpdateCamp from "./components/UpdateCamp";
+import AddCampsite from "./pages/AddCampsite";
+import Search from "./pages/Search";
+import { useAppContext } from "./contexts/AppContext";
+import About from "./components/About";
 
 const App = () => {
-  // const {isLoggedIn} = useAppContext();
+  const {isLoggedIn} = useAppContext();
   return (
     <div>
       <Router>
         <Routes>
 
-          <Route path="/" element={<Layout>
-            <Home />
-          </Layout>} />
+        <Route path="/" element={<Layout>
+          <Home />
+          <About />
+        </Layout>} />
           <Route path="/showcamps" element={<Layout>
             <ShowCamp />
           </Layout>} />
@@ -32,17 +37,10 @@ const App = () => {
           <Route path='/camp/:id' element={<Layout>
             <Camp />
           </Layout>} />
-          <Route path="*" element={<Layout>
+          {/* <Route path="*" element={<Layout>
             <Home />
-          </Layout>} />
-          <Route
-            path="/"
-            element={
-              <Layout>
-                <Home />
-              </Layout>
-            }
-          />
+          </Layout>} /> */}
+
           <Route
             path="/search"
             element={
@@ -73,14 +71,6 @@ const App = () => {
           />
         </>
         )} 
-          <Route
-            path="*"
-            element={
-              <Layout>
-                <p>Home Page</p>
-              </Layout>
-            }
-          />
         </Routes>
       </Router>
     </div>
