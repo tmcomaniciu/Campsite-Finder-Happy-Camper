@@ -14,66 +14,97 @@ import Search from "./pages/Search";
 import { useAppContext } from "./contexts/AppContext";
 import About from "./components/About";
 
-const App = () => {
-  const {isLoggedIn} = useAppContext();
-  return (
-    <div>
-      <Router>
-        <Routes>
+//
+import { QueryClient, QueryClientProvider } from "react-query";
 
-        <Route path="/" element={<Layout>
-          <Home />
-          <About />
-        </Layout>} />
-          <Route path="/showcamps" element={<Layout>
-            <ShowCamp />
-          </Layout>} />
-          <Route path="/newcamp" element={<Layout>
-            <New />
-          </Layout>} />
-          <Route path="/updatecamp" element={<Layout>
-            <UpdateCamp />
-          </Layout>} />
-          <Route path='/camp/:id' element={<Layout>
-            <Camp />
-          </Layout>} />
-          {/* <Route path="*" element={<Layout>
+const queryClient = new QueryClient();
+
+const App = () => {
+  const { isLoggedIn } = useAppContext();
+  return (
+    <QueryClientProvider client={queryClient}>
+      <div>
+        <Router>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Layout>
+                  <Home />
+                  <About />
+                </Layout>
+              }
+            />
+            <Route
+              path="/showcamps"
+              element={
+                <Layout>
+                  <ShowCamp />
+                </Layout>
+              }
+            />
+            <Route
+              path="/newcamp"
+              element={
+                <Layout>
+                  <New />
+                </Layout>
+              }
+            />
+            <Route
+              path="/updatecamp"
+              element={
+                <Layout>
+                  <UpdateCamp />
+                </Layout>
+              }
+            />
+            <Route
+              path="/camp/:id"
+              element={
+                <Layout>
+                  <Camp />
+                </Layout>
+              }
+            />
+            {/* <Route path="*" element={<Layout>
             <Home />
           </Layout>} /> */}
 
-          <Route
-            path="/search"
-            element={
-              <Layout>
-                <Search />
-              </Layout>
-            }
-          />
-          <Route
-            path="/camp/:id"
-            element={
-              <Layout>
-                <Camp />
-              </Layout>
-            }
-          />
-                
-        {/* Add campsite logic */}
-        {isLoggedIn && (
-          <>
-          <Route 
-            path="/add-campsite" 
-            element = {
-              <Layout>
-                <AddCampsite />
-              </Layout>
-            }
-          />
-        </>
-        )} 
-        </Routes>
-      </Router>
-    </div>
+            <Route
+              path="/search"
+              element={
+                <Layout>
+                  <Search />
+                </Layout>
+              }
+            />
+            <Route
+              path="/camp/:id"
+              element={
+                <Layout>
+                  <Camp />
+                </Layout>
+              }
+            />
+
+            {/* Add campsite logic */}
+            {isLoggedIn && (
+              <>
+                <Route
+                  path="/add-campsite"
+                  element={
+                    <Layout>
+                      <AddCampsite />
+                    </Layout>
+                  }
+                />
+              </>
+            )}
+          </Routes>
+        </Router>
+      </div>
+    </QueryClientProvider>
   );
 };
 

@@ -1,19 +1,19 @@
 import "dotenv/config";
-import express from 'express'
-import mongoose from 'mongoose'
-import campRoutes from '../backend/Controllers/camp_controllers.js';
+import express from "express";
+import mongoose from "mongoose";
+import campRoutes from "../backend/Controllers/camp_controllers.js";
 
-const app = express()
-const PORT = process.env.PORT || 8000
-const MONGO_URI = process.env.MONGO_URI
+const app = express();
+const PORT = process.env.PORT || 8000;
+const MONGO_URI = process.env.MONGO_URI;
 
-app.use(express.json())
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use('/camps', campRoutes)
+app.use("/camps", campRoutes);
 
-app.get('/', (req, res) => {
-  res.send('Welcome to Camping....')
-})
+app.get("/", (req, res) => {
+  res.send("Welcome to Camping....");
+});
 
 mongoose
 
@@ -24,5 +24,5 @@ mongoose
   .catch((err) => console.error("MongoDB connection error:", err));
 
 app.listen(PORT, () => {
-  console.log('listening on port', PORT);
-})
+  console.log("listening on port", PORT);
+});
