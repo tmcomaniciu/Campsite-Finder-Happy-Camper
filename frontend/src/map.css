@@ -13,3 +13,7 @@
     text-align: center;
     color: black;
 }
+
+.leaflet-popup-content{
+    color: black;
+}
