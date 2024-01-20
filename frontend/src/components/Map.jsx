@@ -51,7 +51,7 @@ export default function Map(){
             })
 
             var marker = L.marker(this.coordinates, {icon: userLocaction}).addTo(this.map);
-            marker.addTo(this.map).bindPopup('<p>You are here</p>');
+            marker.addTo(this.map).bindPopup('<p>You are here</p>').openPopup();
         },
 
     
