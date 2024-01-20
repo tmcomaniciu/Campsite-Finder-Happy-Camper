@@ -11,9 +11,9 @@ function Camps() {
     // initial loading of page
     useEffect(() => {
         const fetchData = async () => {
-            const url = `${process.env.REACT_APP_API_BASE_URL}/camps`
+            const url = `${process.env.REACT_APP_API_BASE_URL}camps`
 
-            // console.log('url', url)
+            // console.log('url', process.env.REACT_APP_API_BASE_URL)
             const response = await fetch(url)
             const data = await response.json()
             // console.log(data)
@@ -43,10 +43,11 @@ function Camps() {
         // console.log(camp.reviews)
         return (<li key={camp._id} className="group">
 
-            <Link to={`/camp/${camp._id}`}>
+            <Link style={{ textDecoration: 'none'}}
+            to={`/camp/${camp._id}`}>
                 <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
                     <img
-                        src={camp.imageURL}
+                        src={camp.imageURLs[0]}
                         alt={camp.name}
                         className="h-full w-full object-cover object-center group-hover:opacity-75"
                     />

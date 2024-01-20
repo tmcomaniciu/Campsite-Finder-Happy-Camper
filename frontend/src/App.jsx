@@ -1,6 +1,5 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Layout from "./layouts/Layout";
@@ -13,18 +12,19 @@ import AddCampsite from "./pages/AddCampsite";
 import Search from "./pages/Search";
 import { useAppContext } from "./contexts/AppContext";
 import About from "./components/About";
+import SignIn from "./pages/SignIn";
 
 const App = () => {
-  const {isLoggedIn} = useAppContext();
+  const { isLoggedIn } = useAppContext();
   return (
     <div>
       <Router>
         <Routes>
 
-        <Route path="/" element={<Layout>
-          <Home />
-          <About />
-        </Layout>} />
+          <Route path="/" element={<Layout>
+            <Home />
+            <About />
+          </Layout>} />
           <Route path="/showcamps" element={<Layout>
             <ShowCamp />
           </Layout>} />
@@ -37,18 +37,19 @@ const App = () => {
           <Route path='/camp/:id' element={<Layout>
             <Camp />
           </Layout>} />
+          <Route path="/sign-in/" element={<Layout><SignIn /></Layout>} />
           {/* <Route path="*" element={<Layout>
             <Home />
           </Layout>} /> */}
 
-          <Route
+          {/* <Route
             path="/search"
             element={
               <Layout>
                 <Search />
               </Layout>
             }
-          />
+          /> */}
           <Route
             path="/camp/:id"
             element={
@@ -57,9 +58,9 @@ const App = () => {
               </Layout>
             }
           />
-                
-        {/* Add campsite logic */}
-        {isLoggedIn && (
+
+          {/* Add campsite logic */}
+          {/* {isLoggedIn && (
           <>
           <Route 
             path="/add-campsite" 
@@ -70,7 +71,7 @@ const App = () => {
             }
           />
         </>
-        )} 
+        )}  */}
         </Routes>
       </Router>
     </div>

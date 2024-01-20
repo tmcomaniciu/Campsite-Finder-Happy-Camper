@@ -5,6 +5,7 @@ import App from "./App";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { AppContextProvider } from "./contexts/AppContext";
 import { SearchContextProvider } from "./contexts/SearchContext";
+import { ThemeProvider } from "@material-tailwind/react";
 
 const queryClient = new QueryClient({
   defualtOptions: {
@@ -17,8 +18,12 @@ const queryClient = new QueryClient({
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-        <SearchContextProvider>
-      <App />
-        </SearchContextProvider>
+    <ThemeProvider>
+      <SearchContextProvider>
+        {/* <AppContextProvider> */}
+        <App />
+        {/* </AppContextProvider> */}
+      </SearchContextProvider>
+    </ThemeProvider>
   </React.StrictMode>
 );

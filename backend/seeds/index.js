@@ -1,5 +1,5 @@
-const mongoose = require('mongoose')
-const Camp = require('../Models/Camp')
+import mongoose from 'mongoose'
+import Camp from '../src/models/Camp.js'
 
 main().catch(error => {
     console.log('Error connecting to MongoDB')
@@ -7,7 +7,8 @@ main().catch(error => {
 })
 async function main() {
     // console.log(process.env.MONGO_URI);
-    await mongoose.connect(process.env.MONGO_URI)
+    const url = process.env.MONGODB_URI || 'mongodb+srv://admin:password-group-4@mern-campsite-reservati.dg4wdlm.mongodb.net/?retryWrites=true&w=majority'
+    await mongoose.connect(url)
     console.log('Connected to MongoDB')
 }
 const cities = [
@@ -105,14 +106,17 @@ const seedDB = async () => {
             city: cities[i].city,
             state: cities[i].state,
             description: 'Camping is a fun and exciting outdoor activity that allows you to connect with nature. It is when you leave your home and stay outside for one or more nights, usually in a tent or a camper. The best part about it is that you can do it anywhere from a forest to a mountain top.',
-            imageURL: `https://images.pexels.com/photos/8985295/pexels-photo-8985295.jpeg?auto=compress&cs=tinysrgb&w=600`,
+            imageURLs: [
+                `https://images.pexels.com/photos/8985295/pexels-photo-8985295.jpeg?auto=compress&cs=tinysrgb&w=600`,
+                `https://images.pexels.com/photos/8659561/pexels-photo-8659561.jpeg?auto=compress&cs=tinysrgb&w=600`
+            ],
             price,
             geolocation: {
-                type: 'Point', 
-                coordinates: [ 
+                type: 'Point',
+                coordinates: [
                     cities[i].longitude,
                     cities[i].latitude
-                 ] 
+                ]
             }
         })
         await camp.save()

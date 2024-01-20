@@ -1,9 +1,8 @@
 import Header from "../components/Header";
 import Hero from "../components/Hero";
 import Footer from "../components/Footer";
-import About from "../components/About";
 import NavBar from "../components/Navbar";
-import SearchBar from "../components/SearchBar";
+// import SearchBar from "../components/SearchBar";
 
 const Layout = ({ children }) => {
   return (
@@ -11,9 +10,9 @@ const Layout = ({ children }) => {
       <Header />
       <Hero />
       <NavBar />
-      <div className="container mx-auto">
+      {/* <div className="container mx-auto">
       <SearchBar />
-      </div>
+      </div> */}
       <div className="container mx-auto py-10 flex-1">{children}</div>
       <Footer />
     </div>

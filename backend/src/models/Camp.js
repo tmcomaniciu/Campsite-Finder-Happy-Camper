@@ -1,4 +1,4 @@
-import  mongoose from 'mongoose'
+import mongoose from 'mongoose'
 
 const CampSchema = new mongoose.Schema({
     name: {
@@ -24,9 +24,9 @@ const CampSchema = new mongoose.Schema({
     description: {
         type: String, required: true
     },
-    imageURL: {
+    imageURLs: [{
         type: String, required: false
-    },
+    }],
     price: {
         type: Number, required: true
     },
@@ -35,7 +35,13 @@ const CampSchema = new mongoose.Schema({
             type: mongoose.Schema.Types.ObjectID,
             ref: 'Review'
         }
-    ]
+    ],
+    // userId:
+    // {
+    //     type: mongoose.Schema.Types.ObjectID,
+    //     ref: 'User'
+    // }
+
 })
 
 const Camp = mongoose.model('Camp', CampSchema)

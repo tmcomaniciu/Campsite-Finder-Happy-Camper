@@ -30,6 +30,10 @@ const SearchBar = () => {
   const maxDate = new Date();
   maxDate.setFullYear(maxDate.getFullYear() + 1);
 
+  const handleClear = (event) => {
+
+  }
+
   return (
     <form
       onSubmit={handleSubmit}
@@ -98,12 +102,15 @@ const SearchBar = () => {
         />
       </div>
       <div className="flex gap-1">
-        <button 
-        className="bg-gradient-to-r from-teal-400 to-blue-500 text-white font-bold py-2 px-8 rounded-lg">
-        {/* className="rounded-lg w-2/3 bg-green-600 text-white h-full p-2 font-bold text-xl hover:bg-blue-500"> */}
+        <button
+          className="bg-gradient-to-r from-teal-400 to-blue-500 text-white font-bold p-2 px-8 rounded-lg">
+          {/* // className="rounded-lg w-2/3 bg-green-600 text-white h-full p-2 font-bold text-xl hover:bg-blue-500" */}
           Search
         </button>
-        <button className="rounded-lg w-1/3 bg-gray-600 text-white h-full p-2 font-bold text-xl hover:bg-red-500">
+        <button
+          className="rounded-lg w-1/3 bg-gray-600 text-white h-full p-2 font-bold text-xl hover:bg-red-500"
+          onClick={handleClear}
+        >
           Clear
         </button>
       </div>

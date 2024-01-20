@@ -1,6 +1,5 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import Button from 'react-bootstrap/Button';
 
 function ReviewForm({ id }) {
     const INIT_STATE = {
@@ -16,7 +15,7 @@ function ReviewForm({ id }) {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            const url = `${process.env.REACT_APP_BACKEND_URL}/camps/${id}/reviews`
+            const url = `${process.env.REACT_APP_API_BASE_URL}camps/${id}/reviews`
             const response = await fetch(url, {
                 method: 'POST',
                 headers: {
@@ -34,7 +33,7 @@ function ReviewForm({ id }) {
 
     return (
         <div>
-            <h1 className="text-2xl font-mono"> Write a Review</h1>
+            <h1 className="text-2xl font-mono mt-3"> Write a Review</h1>
             <form onSubmit={handleSubmit}>
                 <input
                     className='border-solid border-2 border-green-600 mr-1 rounded-md p-1'
@@ -47,17 +46,28 @@ function ReviewForm({ id }) {
                 />
                 <input
                     className='border-solid border-2 border-green-600 mr-1 rounded-md p-1'
-                    type="text"
+                    type="number"
                     required
                     name='rating'
                     placeholder='Stars'
+                    min={1}
+                    max={5}
                     value={data.rating}
                     onChange={onChangeHandler}
                 />
-                <Button><input
-                    className='bg-green-900 items-center text-white px-3 font-bold hover:bg-slate-200 hover:text-green-900 rounded-md p-1'
+                <input
+                    className='border-solid border-2 border-green-600 mr-1 rounded-md p-1'
+                    type="text"
+                    required
+                    name='username'
+                    placeholder='Username'
+                    value={data.username}
+                    onChange={onChangeHandler}
+                />
+                <input
+                    className='bg-green-900 items-center text-white px-3 font-bold hover:bg-green-700 hover:text-green-900 rounded-md p-1'
                     type="submit"
-                /></Button>
+                />
             </form>
         </div>
     )

@@ -1,6 +1,7 @@
 import express from 'express'
-import Camp from '../Models/Camp.js'
-import Review from '../Models/Review.js'
+import Camp from '../models/Camp.js'
+import Review from '../models/Review.js'
+import { Console } from 'console'
 
 const router = express.Router()
 
@@ -49,31 +50,49 @@ router.get('/price', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
     try {
-    const { id } = req.params
-    const camp = await Camp.findById(id).populate('reviews');
-    // console.log(camp)
-    res.json(camp)
+        const { id } = req.params
+        const camp = await Camp.findById(id).populate('reviews');
+        // console.log(camp)
+        res.json(camp)
     }
-     catch (error) {
+    catch (error) {
         console.log('Error', error)
         res.status(500).json({ message: 'error getting particular camp site' })
     }
 })
 
 router.post('/:id/reviews', async (req, res) => {
-    const camp = await Camp.findById(req.params.id)
-    const review = new Review(req.body)
-    camp.reviews.push(review)
-    await review.save()
-    await camp.save()
-    res.send('reviews added')
+    try {
+        const camp = await Camp.findById(req.params.id)
+        console.log('req', req.params.id);
+        const review = new Review(req.body)
+        camp.reviews.push(review)
+        await review.save()
+        await camp.save()
+        res.send('reviews added')
+    } catch (error) {
+        console.log('Error', error);
+        res.status(500).json({ message: 'error adding a review to camp site' })
+    }
 })
 
 router.put('/:id', async (req, res) => {
     try {
         const { id } = req.params
-        const camp = await Camp.findByIdAndUpdate(id, { ...req.body }, { new: true })
-        res.json(camp)
+        if (req.body.imageURLs) {
+            console.log('inside image', id);
+            let camp = await Camp.findByIdAndUpdate(id, { $push: { imageURLs: req.body.imageURLs } }, { new: true })
+            let reqObject = req.body
+            delete reqObject['imageURLs']
+            if (reqObject) {
+                camp = await Camp.findByIdAndUpdate(id, { ...reqObject }, { new: true })
+            }
+            res.json(camp)
+        } else {
+            const camp = await Camp.findByIdAndUpdate(id, { ...req.body }, { new: true })
+            res.json(camp)
+        }
+
     } catch (error) {
         console.log('Error', error)
         res.status(500).json({ message: 'error updating a camp site' })

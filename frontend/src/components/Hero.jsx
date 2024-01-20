@@ -1,3 +1,5 @@
+import SearchBar from "./SearchBar";
+
 const Hero = () => {
   return (
     <div className="hero">
@@ -9,6 +11,7 @@ const Hero = () => {
           <p className="text-2xl text-white">Explore the great outdoors!</p>
         </div>
       </div>
+          <SearchBar />
     </div>
   );
 };
