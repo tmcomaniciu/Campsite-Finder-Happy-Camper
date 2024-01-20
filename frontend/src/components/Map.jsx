@@ -47,18 +47,18 @@ export default function Map(){
     
             var userLocaction = L.icon({
                 iconUrl: require ('../pics/location-pin.png'),
-                iconSize: [38, 95]
+                iconSize: [50, 95]
             })
 
             var marker = L.marker(this.coordinates, {icon: userLocaction}).addTo(this.map);
-            marker.addTo(this.map).bindPopup('<p>You are here</p>').openPopup();
+            marker.addTo(this.map).bindPopup('<p>You are here</p>');
         },
 
     
         async addCampMarkers(response) {
             var campPin = L.icon({
                 iconUrl: require('../pics/pin.png'),
-                iconSize: [38, 95],
+                iconSize: [50, 95],
 
             })
             for (let i = 0; i < response.results.length; i++) {
