@@ -10,7 +10,7 @@
   background-image: url('../public/images/tent.jpg');
   background-size: cover;
   height: 100vh;
-  animation: changeNightBackground 20s infinite;
+  animation: changeNightBackground 20s infinite; 
 }
 
 @keyframes changeBackground {

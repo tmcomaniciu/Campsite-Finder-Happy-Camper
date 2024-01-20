@@ -1,7 +1,6 @@
 import Header from "../components/Header";
 import Hero from "../components/Hero";
 import Footer from "../components/Footer";
-import About from "../components/About";
 import NavBar from "../components/Navbar";
 import SearchBar from "../components/SearchBar";
 
@@ -10,10 +9,9 @@ const Layout = ({ children }) => {
     <div className="flex flex-col min-h-screen">
       <Header />
       <Hero />
-      <NavBar />
-      <div className="container mx-auto">
       <SearchBar />
-      </div>
+      <NavBar />
+      <div className="container mx-auto"></div>
       <div className="container mx-auto py-10 flex-1">{children}</div>
       <Footer />
     </div>

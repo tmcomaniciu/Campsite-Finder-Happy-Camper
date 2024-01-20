@@ -4,6 +4,7 @@ import { MdTravelExplore } from "react-icons/md";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useNavigate } from "react-router-dom";
+import "../styles/searchbar.css";
 
 const SearchBar = () => {
   const navigate = useNavigate();
@@ -98,9 +99,8 @@ const SearchBar = () => {
         />
       </div>
       <div className="flex gap-1">
-        <button 
-        className="bg-gradient-to-r from-teal-400 to-blue-500 text-white font-bold py-2 px-8 rounded-lg">
-        {/* className="rounded-lg w-2/3 bg-green-600 text-white h-full p-2 font-bold text-xl hover:bg-blue-500"> */}
+        <button className="bg-gradient-to-r from-teal-400 to-blue-500 text-white font-bold py-2 px-8 rounded-lg">
+          {/* className="rounded-lg w-2/3 bg-green-600 text-white h-full p-2 font-bold text-xl hover:bg-blue-500"> */}
           Search
         </button>
         <button className="rounded-lg w-1/3 bg-gray-600 text-white h-full p-2 font-bold text-xl hover:bg-red-500">
