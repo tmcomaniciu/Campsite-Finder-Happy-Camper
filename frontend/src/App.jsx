@@ -13,6 +13,7 @@ import AddCampsite from "./pages/AddCampsite";
 import Search from "./pages/Search";
 import { useAppContext } from "./contexts/AppContext";
 import About from "./components/About";
+import Map from "./components/Map";
 
 const App = () => {
   const {isLoggedIn} = useAppContext();
@@ -40,6 +41,9 @@ const App = () => {
           {/* <Route path="*" element={<Layout>
             <Home />
           </Layout>} /> */}
+          <Route path="/map" element={<Layout>
+          <Map />
+        </Layout>} />
 
           <Route
             path="/search"
