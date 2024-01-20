@@ -1,0 +1,15 @@
+.leaflet-container{
+    height: 40vh;
+    width: 100%;
+}
+
+.map{
+    height: 50vh;
+    width: 75%;
+    margin: auto;
+}
+
+.near{
+    text-align: center;
+    color: black;
+}
