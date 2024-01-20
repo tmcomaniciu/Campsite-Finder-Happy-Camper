@@ -79,17 +79,27 @@ router.post('/:id/reviews', async (req, res) => {
 router.put('/:id', async (req, res) => {
     try {
         const { id } = req.params
-        if (req.body.imageURLs) {
-            console.log('inside image', id);
-            let camp = await Camp.findByIdAndUpdate(id, { $push: { imageURLs: req.body.imageURLs } }, { new: true })
-            let reqObject = req.body
+        const reqCamp = req.body.camp
+        const deleteImages = req.body.deleteImages
+        // console.log('put', reqCamp, deleteImages);
+
+        if (reqCamp.imageURLs) {
+            // console.log('inside image', id);
+            let camp = await Camp.findByIdAndUpdate(id, { $push: { imageURLs: reqCamp.imageURLs } }, { new: true })
+            let reqObject = reqCamp
             delete reqObject['imageURLs']
             if (reqObject) {
                 camp = await Camp.findByIdAndUpdate(id, { ...reqObject }, { new: true })
             }
+            if (deleteImages) {
+                camp = await Camp.updateOne({ _id: id }, { $pull: { imageURLs: { $in: deleteImages } } })
+            }
             res.json(camp)
         } else {
-            const camp = await Camp.findByIdAndUpdate(id, { ...req.body }, { new: true })
+            let camp = await Camp.findByIdAndUpdate(id, { ...reqCamp }, { new: true })
+            if (deleteImages) {
+                camp = await Camp.updateOne({ _id: id }, { $pull: { imageURLs: { $in: deleteImages } } })
+            }
             res.json(camp)
         }
 

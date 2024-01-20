@@ -15,7 +15,7 @@ function New() {
     const [data, setData] = useState(INIT_STATE)
 
     const [inputValue, setInputValue] = useState('');
-    const [values, setValues] = useState([]);
+    const [images, setImages] = useState([]);
     const handleInputChange = (event) => {
         setInputValue(event.target.value);
     };
@@ -23,7 +23,7 @@ function New() {
     const handleAddValue = () => {
         // Ensure inputValue is not empty before adding to the array
         if (inputValue.trim() !== '') {
-            setValues((prevValues) => [...prevValues, inputValue]);
+            setImages((prevImages) => [...prevImages, inputValue]);
             setInputValue('');
         }
     };
@@ -40,7 +40,7 @@ function New() {
         e.preventDefault()
         try {
             data.price = Number(data.price)
-            data.imageURLs = values
+            data.imageURLs = images
             const url = `${process.env.REACT_APP_API_BASE_URL}camps`
             const response = await fetch(url, {
                 method: 'POST',
@@ -57,6 +57,17 @@ function New() {
 
         console.log(data)
     }
+
+    // const displayAddedImages = images && (
+    //     <ul>
+    //         images.map((image, i) => (
+    //         <li key={}>
+
+    //         </li>
+    //         ))
+    //     </ul>
+    // )
+
 
     return (
         <form onSubmit={handleSubmit}>
